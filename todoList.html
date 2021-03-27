@@ -4,28 +4,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>todoList</title>
 </head>
 <body>
   <script>
-    var todos = ['Item 1', 'Item 2', 'Item 3', 'Item 4']; // Set todos variable
-    console.log(todos); // Print out the todos to the console
-    //todos.push("Item 4"); // add a todo to the end of the todos array
-    //todos[0] = "Item 1 updated";  // Edit the first todo int he todos array
-    //todos.splice(0,1);  // Remove the first item int he array
+    var todos = [
+      {todoText: 'Item 1', completed: false},
+      {todoText: 'Item 2', completed: false},
+      {todoText: 'Item 3', completed: false}
+    ];
 
-    function add(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
-      todos.push(todo);
-      console.log(todos);
+    function displayTodos() {
+      for (var i = 0; i < todos.length; i++) {
+        console.log('Todo: ' + todos[i].todoText + ' Completed: ' + todos[i].completed);
+      }
     }
-    function edit(position, newValue) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
-      todos[position] = newValue;
-      console.log(todos);
+
+    function addTodo(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
+      todos.push({todoText: todo, completed: false});
+      displayTodos();
     }
-    function remove(position) { // to use:  remove(3); will remove the 4th item in the array.
-      todos.splice(position, position++);
-      console.log(todos);
+    function editTodo(position, newTodoText) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
+      todos[position].todoText = newTodoText;
+      displayTodos();
     }
+    function deleteTodo(position) { // to use:  remove(3); will remove the 4th item in the array.
+      todos.splice(position, 1);
+      displayTodos();
+    }
+    function toggleTodo(position) {
+     if(todos[position].completed === false) {
+       todos[position].completed = true;
+     } else {
+       todos[position].completed = false;
+     }
+     displayTodos();
+    }
+
+    displayTodos();
   </script>
 </body>
 </html>

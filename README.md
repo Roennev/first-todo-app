@@ -10,13 +10,22 @@
 
 ## Version 2
 
-- [x] Add function to add a todo.
-- [x] Add function to edit a todo.
-- [x] Add function to remove a todo.
+- [X] Add function to add a todo.
+- [X] Add function to edit a todo.
+- [X] Add function to remove a todo.
 
 ## Version 3
 
-- [ ] Initiallize todos variable with objects.
-- [ ] Rewrite the add function to add objects to the array.
-- [ ] The edit function should edit the objects.
-- [ ] Add a function to toggle a todo state.
+- [X] Initiallize todos variable with objects.
+- [X] Rewrite the add function to add objects to the array.
+- [X] The edit function should edit the objects.
+
+## Version 4
+
+- [X] Add a function to toggle a todo state.
+
+## Version 5
+
+- [X] Should make a function for displaying todos.
+- [X] displayTodos should show todoText property
+- [X] displaytodos should show completed property
