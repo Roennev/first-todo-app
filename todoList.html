@@ -18,12 +18,12 @@
       todos.push(todo);
       console.log(todos);
     }
-    function edit(i, updatedTodoText) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
-      todos[i] = updatedTodoText
-      console.log(todos)
+    function edit(position, newValue) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
+      todos[position] = newValue;
+      console.log(todos):
     }
-    function remove(i) { // to use:  remove(3); will remove the 4th item in the array.
-      todos.splice(i, i++);
+    function remove(position) { // to use:  remove(3); will remove the 4th item in the array.
+      todos.splice(position, position++);
       console.log(todos);
     }
   </script>
