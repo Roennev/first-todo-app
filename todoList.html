@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todoList</title>
+</head>
+<body>
+  <script>
+    var todos = ['Item 1', 'Item 2', 'Item 3']; // Set todos variable
+    console.log(todos); // Print out the todos to the console
+    //todos.push("Item 4"); // add a todo to the end of the todos array
+    //todos[0] = "Item 1 updated";  // Edit the first todo int he todos array
+    //todos.splice(0,1);  // Remove the first item int he array
+
+    function add(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
+      todos.push(todo);
+      console.log(todos);
+    }
+    function edit(i, updatedTodoText) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
+      todos[i] = updatedTodoText
+      console.log(todos)
+    }
+    function remove(i) { // to use:  remove(3); will remove the 4th item in the array.
+      todos.splice(i, i++);
+      console.log(todos);
+    }
+  </script>
+</body>
+</html>
