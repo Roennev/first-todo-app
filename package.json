@@ -12,5 +12,21 @@
     "eslint": "^7.23.0",
     "git-scripts": "^0.4.3",
     "surge": "^0.22.1"
+  },
+  "surge": "latest",
+  "git-scripts": "0.2.1",
+  "git": {
+    "scripts": {
+      "pre-push": "surge --project"
+    },
+    "dependencies": {},
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Roennev/first-todo-app.git"
+    },
+    "bugs": {
+      "url": "https://github.com/Roennev/first-todo-app/issues"
+    },
+    "homepage": "https://github.com/Roennev/first-todo-app#readme"
   }
 }
