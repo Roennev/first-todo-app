@@ -41,6 +41,4 @@
 
 - [X] Should have a displayTodos button
 - [X] The displayTodos button should run the displayTodos fucntion
-- [ ] 
-- [ ] 
-- [ ] 
+
