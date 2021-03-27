@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>todoList</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1 class="center-align">My todo list</h1>
+      <div class="row">
+        <div class="input-field col s6">
+          <input value="What do you have todo ?" id="todo" type="text" class="validate">
+          <label class="active" for="todo">Todo:</label>
+        </div>
+        <button class="waves-effect waves-light btn" id="show-todo-btn" onclick="displayTodos();">Display Todos</button>
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+    var todos = [{
+        todoText: 'Item 1',
+        completed: false
+      },
+      {
+        todoText: 'Item 2',
+        completed: false
+      },
+      {
+        todoText: 'Item 3',
+        completed: false
+      }
+    ];
+
+    function displayTodos() {
+      for (var i = 0; i < todos.length; i++) {
+        console.log('Todo: ' + todos[i].todoText + ' Completed: ' + todos[i].completed);
+        var displayTodosButton = document.getElementById('show-todo-btn');
+        displayTodosButton.addEventListener('click', displayTodos);
+      }
+    }
+
+    function addTodo(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
+      todos.push({
+        todoText: todo,
+        completed: false
+      });
+      displayTodos();
+    }
+
+    function editTodo(position,
+      newTodoText) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
+      todos[position].todoText = newTodoText;
+      displayTodos();
+    }
+
+    function deleteTodo(position) { // to use:  remove(3); will remove the 4th item in the array.
+      todos.splice(position, 1);
+      displayTodos();
+    }
+
+    function toggleTodo(position) {
+      if (todos[position].completed === false) {
+        todos[position].completed = true;
+      } else {
+        todos[position].completed = false;
+      }
+      displayTodos();
+    }
+
+    function toggleAllTodos() {
+      var completedTodos = 0;
+      var notCompletedTodos = 0;
+      for (var i = 0; i < todos.length; i++) {
+        if (todos[i].completed === true) {
+          completedTodos++;
+        } else {
+          notCompletedTodos++;
+        }
+      }
+      if (completedTodos === todos.length) {
+        for (var i = 0; i < todos.length; i++) {
+          todos[i].completed = false;
+        }
+      } else {
+        for (var i = 0; i < todos.length; i++) {
+          todos[i].completed = true;
+        }
+      }
+
+
+      displayTodos();
+    }
+
+    displayTodos();
+  </script>
+</body>
+
+</html>

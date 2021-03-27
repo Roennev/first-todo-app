@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.23.0"
+    "eslint": "^7.23.0",
+    "git-scripts": "^0.4.3",
+    "surge": "^0.22.1"
   }
 }

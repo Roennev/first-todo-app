@@ -23,5 +23,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-.vscode/
-node_modules/
+/CNAME
+/node_modules
+/.vscode
+/.eslintrc.json
