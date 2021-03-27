@@ -16,7 +16,7 @@
 
 ## Version 3
 
-- [] Initiallize todos variable with objects.
-- [] Rewrite the add function to add objects to the array.
-- [] The edit function should edit the objects.
-- [] Add a function to toggle a todo state.
+- [ ] Initiallize todos variable with objects.
+- [ ] Rewrite the add function to add objects to the array.
+- [ ] The edit function should edit the objects.
+- [ ] Add a function to toggle a todo state.
