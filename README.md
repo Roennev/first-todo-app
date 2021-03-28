@@ -41,4 +41,12 @@
 
 - [X] Should have a displayTodos button
 - [X] The displayTodos button should run the displayTodos fucntion
+- [X] Should have a toggleAll button
+- [X] Make toggleAll button run the toggleAll function
 
+## Version 8 - Getting data from inputs
+
+- [X] Should be a working button for adding todos
+- [ ] Should be a working button for editing a todo
+- [ ] Should be a working button for removing a todo
+- [ ] Should be a working button to toggle a todo

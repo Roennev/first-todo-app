@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   <title>todoList</title>
 </head>
 
@@ -16,10 +16,14 @@
       <h1 class="center-align">My todo list</h1>
       <div class="row">
         <div class="input-field col s6">
-          <input value="What do you have todo ?" id="todo" type="text" class="validate">
-          <label class="active" for="todo">Todo:</label>
+          <form>
+            <label class="active" for="todo">Todo:</label>
+            <input value="" type="text" id="add-todo-input" class="validate">
+            <button id="add-todo-btn">Add todo</button>
+          </form>
         </div>
-        <button class="waves-effect waves-light btn" id="show-todo-btn" onclick="displayTodos();">Display Todos</button>
+        <button class="waves-effect waves-light btn" id="show-todo-btn">Display Todos</button>
+        <button id="toggle-all-btn">Toggle all</button>
       </div>
     </div>
   </main>
@@ -43,16 +47,29 @@
     function displayTodos() {
       for (var i = 0; i < todos.length; i++) {
         console.log('Todo: ' + todos[i].todoText + ' Completed: ' + todos[i].completed);
-        var displayTodosButton = document.getElementById('show-todo-btn');
-        displayTodosButton.addEventListener('click', displayTodos);
       }
     }
 
-    function addTodo(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
+    // function addTodo(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
+    //   todos.push({
+    //     todoText: todo,
+    //     completed: false
+    //   });
+    //   displayTodos();
+    // }
+
+    function addTodo(e) {
+      e.preventDefault();
+      var initialTodoText = addTodoInput.value;
+      if (initialTodoText != '') {
       todos.push({
-        todoText: todo,
+        todoText: initialTodoText,
         completed: false
       });
+      addTodoInput.value = '';
+    } else {
+      alert('Todo cannot be empty.')
+    }
       displayTodos();
     }
 
@@ -95,12 +112,18 @@
           todos[i].completed = true;
         }
       }
-
-
       displayTodos();
     }
 
-    displayTodos();
+    var displayTodosButton = document.getElementById('show-todo-btn');
+    displayTodosButton.addEventListener('click', displayTodos);
+
+    var toggleAllButton = document.getElementById('toggle-all-btn');
+    toggleAllButton.addEventListener('click', toggleAllTodos);
+
+    var addTodoButton = document.getElementById('add-todo-btn');
+    var addTodoInput = document.getElementById('add-todo-input');
+    addTodoButton.addEventListener('click', addTodo);
   </script>
 </body>
 
