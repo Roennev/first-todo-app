@@ -62,15 +62,15 @@
       e.preventDefault();
       var initialTodoText = addTodoInput.value;
       if (initialTodoText != '') {
-      todos.push({
-        todoText: initialTodoText,
-        completed: false
-      });
-      addTodoInput.value = '';
-    } else {
-      alert('Todo cannot be empty.')
-    }
-      displayTodos();
+        todos.push({
+          todoText: initialTodoText,
+          completed: false
+        });
+        addTodoInput.value = '';
+        displayTodos();
+      } else {
+        alert('Todo cannot be empty.')
+      }
     }
 
     function editTodo(position,
