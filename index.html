@@ -17,9 +17,25 @@
       <div class="row">
         <div class="input-field col s6">
           <form>
-            <label class="active" for="todo">Todo:</label>
-            <input value="" type="text" id="add-todo-input" class="validate">
+            <label class="active" for="addtodo">Todo:</label>
+            <input value="" id="add-todo-input" class="validate">
             <button id="add-todo-btn">Add todo</button>
+          </form>
+          <form>
+            <label class="active" for="edittodo">Edit:</label>
+            <input size="3" id="edit-todo-pos-input" class="validate">
+            <input value="" id="edit-todo-text-input" class="validate">
+            <button value="" id="edit-todo-button">Edit</button>
+          </form>
+          <form>
+            <label class="active" for="remvoetodo">Remove:</label>
+            <input size="3" value="" id="remove-todo-input" class="validate">
+            <button id="remove-todo-btn">Remove todo</button>
+          </form>
+          <form>
+            <label class="active" for="toggletodo">Toggle:</label>
+            <input size="3" value="" id="toggle-todo-input" class="validate">
+            <button id="toggle-todo-btn">Toggle todo</button>
           </form>
         </div>
         <button class="waves-effect waves-light btn" id="show-todo-btn">Display Todos</button>
@@ -50,14 +66,6 @@
       }
     }
 
-    // function addTodo(todo) { // to use: add("todo here");  will add 'todo here' to the end of the array
-    //   todos.push({
-    //     todoText: todo,
-    //     completed: false
-    //   });
-    //   displayTodos();
-    // }
-
     function addTodo(e) {
       e.preventDefault();
       var initialTodoText = addTodoInput.value;
@@ -73,22 +81,35 @@
       }
     }
 
-    function editTodo(position,
-      newTodoText) { // to use:  edit(0, "Updated todo"); will update first array item to "Updated todo"
-      todos[position].todoText = newTodoText;
-      displayTodos();
-    }
-
-    function deleteTodo(position) { // to use:  remove(3); will remove the 4th item in the array.
-      todos.splice(position, 1);
-      displayTodos();
-    }
-
-    function toggleTodo(position) {
-      if (todos[position].completed === false) {
-        todos[position].completed = true;
+    function editTodo(e) {
+      e.preventDefault();
+      var editTodoPosition = editTodoPositionInput.value;
+      var editTodoText = editTodoTextInput.value;
+      if (editTodoPosition != '' && editTodoText != '') {
+        todos[editTodoPosition].todoText = editTodoText;
+        editTodoPositionInput.value = '';
+        editTodoTextInput.value = '';
+        displayTodos();
       } else {
-        todos[position].completed = false;
+        alert('You have to enter a position and a change.')
+      }
+    }
+
+
+    function deleteTodo(e) {
+      e.preventDefault();
+      var removeTodo = removeTodoInput.value;
+      todos.splice(removeTodo, 1);
+      displayTodos();
+    }
+
+    function toggleTodo(e) {
+      e.preventDefault();
+      var toggleTodoinput = toggleTodoInput.value;
+      if (todos[toggleTodoinput].completed === false) {
+        todos[toggleTodoinput].completed = true;
+      } else {
+        todos[toggleTodoinput].completed = false;
       }
       displayTodos();
     }
@@ -124,6 +145,19 @@
     var addTodoButton = document.getElementById('add-todo-btn');
     var addTodoInput = document.getElementById('add-todo-input');
     addTodoButton.addEventListener('click', addTodo);
+
+    var editTodoButton = document.getElementById('edit-todo-button');
+    var editTodoPositionInput = document.getElementById('edit-todo-pos-input');
+    var editTodoTextInput = document.getElementById('edit-todo-text-input');
+    editTodoButton.addEventListener('click', editTodo);
+
+    var removeTodoButton = document.getElementById('remove-todo-btn');
+    var removeTodoInput = document.getElementById('remove-todo-input');
+    removeTodoButton.addEventListener('click', deleteTodo);
+
+    var toggleTodoButton = document.getElementById('toggle-todo-btn');
+    var toggleTodoInput = document.getElementById('toggle-todo-input');
+    toggleTodoButton.addEventListener('click', toggleTodo);
   </script>
 </body>
 

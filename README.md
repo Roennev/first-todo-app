@@ -47,6 +47,6 @@
 ## Version 8 - Getting data from inputs
 
 - [X] Should be a working button for adding todos
-- [ ] Should be a working button for editing a todo
-- [ ] Should be a working button for removing a todo
-- [ ] Should be a working button to toggle a todo
+- [X] Should be a working button for editing a todo
+- [X] Should be a working button for removing a todo
+- [X] Should be a working button to toggle a todo
